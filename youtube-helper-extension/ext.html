@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>YouTube RAG Assistant</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(145deg, #0f172a, #1e293b);
+      color: #f1f5f9;
+      margin: 0;
+      padding: 10px;
+      width: 300px;
+      /* smaller width */
+      height: 400px;
+      /* smaller height */
+      display: flex;
+      flex-direction: column;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h2 {
+      text-align: center;
+      color: #38bdf8;
+      margin: 0 0 10px 0;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    #chat-box {
+      flex: 1;
+      overflow-y: auto;
+      border-radius: 10px;
+      padding: 8px;
+      background: #1e293b;
+      border: 1px solid #334155;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      scroll-behavior: smooth;
+    }
+
+    .message {
+      max-width: 80%;
+      padding: 6px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      line-height: 1.4em;
+      word-wrap: break-word;
+    }
+
+    .user {
+      background: #38bdf8;
+      color: #0f172a;
+      align-self: flex-end;
+      border-bottom-right-radius: 0;
+    }
+
+    .ai {
+      background: #0f172a;
+      color: #f1f5f9;
+      border: 1px solid #334155;
+      align-self: flex-start;
+      border-bottom-left-radius: 0;
+    }
+
+    .input-area {
+      display: flex;
+      margin-top: 8px;
+      background: #1e293b;
+      border-radius: 8px;
+      border: 1px solid #334155;
+      overflow: hidden;
+    }
+
+    #question {
+      flex: 1;
+      padding: 6px;
+      border: none;
+      background: transparent;
+      color: #f1f5f9;
+      font-size: 12px;
+      resize: none;
+      height: 36px;
+      outline: none;
+    }
+
+    #ask-btn {
+      background: #38bdf8;
+      color: #0f172a;
+      border: none;
+      padding: 0 12px;
+      cursor: pointer;
+      transition: 0.2s;
+      font-weight: 600;
+    }
+
+    #ask-btn:hover {
+      background: #7dd3fc;
+      transform: scale(1.05);
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 10px;
+      margin-top: 5px;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+
+<body>
+  <h2> Your very own YouTube Assistant </h2>
+  <div id="chat-box">
+    <div class="ai message">Hi 👋! Ask me anything about this YouTube video.</div>
+  </div>
+
+  <div class="input-area">
+    <textarea id="question" placeholder="Type your question..."></textarea>
+    <button id="ask-btn">➤</button>
+  </div>
+
+  <div class="footer">Powered by FastAPI + LangChain</div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>
